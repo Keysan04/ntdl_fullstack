@@ -1,0 +1,38 @@
+### get request
+GET http://localhost:8000/api/v2/task
+
+
+### post request
+POST http://localhost:8000/api/v2/task
+Content-Type: application/json
+
+{
+    "task": "running",
+    "hr": 10
+}
+
+
+
+### update request
+PATCH  http://localhost:8000/api/v2/task
+Content-Type: application/json
+
+{
+"_id": "653f1b3b54420bfe4651a679",
+ "type": "bad"
+}
+
+
+
+### post request
+# DELETE  http://localhost:8000/api/v2/task/653f15d054420bfe4651a675
+DELETE  http://localhost:8000/api/v2/task
+Content-Type: application/json
+
+{
+"ids": [
+    "653f15d054420bfe4651a675",
+    "653f1b3354420bfe4651a677",
+    "653f1ba224ae10a6a34bf73c"
+]
+}
