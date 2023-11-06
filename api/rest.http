@@ -7,7 +7,7 @@ POST http://localhost:8000/api/v2/task
 Content-Type: application/json
 
 {
-    "task": "running",
+    "task": "Debugging",
     "hr": 10
 }
 

@@ -134,37 +134,6 @@ function App() {
   const entry = taskList.filter((item) => item.type === "entry");
   const bad = taskList.filter((item) => item.type === "bad");
 
-  const handleOnAllCheck = (e) => {
-    console.log(e);
-    const { checked, value } = e.target;
-    console.log(checked, value);
-    if (value === "entry") {
-      const entryIds = entry.map((item) => item._id);
-      if (checked) {
-        setIdsToDelete([...idsToDelete, ...entryIds]);
-      } else {
-        const tempArgIds = idsToDelete.filter((id) => !entryIds.includes(id));
-        setIdsToDelete(tempArgIds);
-      }
-
-      // if checked add the ids to the idsToDelete
-      //else remove entryIds
-    } else {
-      if (value === "bad") {
-        const badEntryIds = bad.map((item) => item._id);
-        if (checked) {
-          setIdsToDelete([...idsToDelete, ...badEntryIds]);
-        } else {
-          const tempArgIds = idsToDelete.filter(
-            (id) => !badEntryIds.includes(id)
-          );
-          setIdsToDelete(tempArgIds);
-        }
-        // if checked add the ids to the idsToDelete
-        //else remove entryIds
-      }
-    }
-  };
   return (
     <div class="wrapper">
       <div class="container">
@@ -238,8 +207,7 @@ function App() {
               {taskList?.length > 0 && (
                 <input
                   type="checkbox"
-                  value="entry"
-                  onChange={handleOnAllCheck}
+                  onChange={handleSelectAll}
                   class="form-check-input"
                 />
               )}
@@ -292,8 +260,7 @@ function App() {
               {bad?.length > 0 && (
                 <input
                   type="checkbox"
-                  value="bad"
-                  onChange={handleOnAllCheck}
+                  onChange={handleSelectAllBad}
                   class="form-check-input"
                 />
               )}

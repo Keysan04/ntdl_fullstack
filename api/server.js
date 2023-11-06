@@ -20,6 +20,7 @@ connectMongo();
 
 app.get("/api/v2/task", async (req, res) => {
   const taskList = await getAllTasks();
+  console.log(taskList);
   res.json({
     status: "success",
     message: "Here are the task list",
@@ -64,6 +65,7 @@ app.delete("/api/v2/task/", async (req, res) => {
   // const result = await deleteTask(_id);
   const result = await deleteManyTask(ids);
   console.log(result);
+
   result?.deletedCount
     ? res.json({
         status: "success",
